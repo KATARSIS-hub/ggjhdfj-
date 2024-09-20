@@ -8,10 +8,10 @@ build-header-converter:
 	@javac -source 1.8 -target 1.8 header-converter-src/HeaderConverter.java
 convert-injector: build-injector build-header-converter
 	@echo "Converting injector class to .h"
-	@java -cp header-converter-src HeaderConverter injector injector-src/*.class native-src/classes/injector.h
+	@java -cp header-converter-src HeaderConverter injector injector-src/*.class native-src/stub_classes/injector.h
 convert-jar: build-header-converter
 	@echo "Converting input jar to .h"
-	@java -cp header-converter-src HeaderConverter input-jar input.jar native-src/classes/jar.h
+	@java -cp header-converter-src HeaderConverter input-jar input.jar native-src/stub_classes/jar.h
 
 native_files := main.cpp injector.cpp utils.cpp
 
@@ -31,8 +31,8 @@ clean-header-converter:
 	@rm -f header-converter-src/*.class
 clean-headers:
 	@echo "Cleaning converted injector and input jar"
-	@rm -f native-src/classes/injector.h
-	@rm -f native-src/classes/jar.h
+	@rm -f native-src/stub_classes/injector.h
+	@rm -f native-src/stub_classes/jar.h
 clean-output-library:
 	@echo "Cleaning output dll"
 	@rm -f output.dll
