@@ -1,6 +1,3 @@
-#include <windows.h>
-#include <winuser.h>
-
 #include "injector.h"
 #include "jvm/jni.h"
 #include "utils.h"
