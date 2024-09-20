@@ -1,5 +1,3 @@
-#include <windows.h>
-
 #include "injector.h"
 #include "utils.h"
 
